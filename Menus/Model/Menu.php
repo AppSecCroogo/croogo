@@ -51,13 +51,17 @@ class Menu extends MenusAppModel {
 			'message' => 'Title cannot be empty.',
 		),
 		'alias' => array(
-			'isUnique' => array(
-				'rule' => 'isUnique',
-				'message' => 'This alias has already been taken.',
-			),
+			// 'isUnique' => array(
+			// 	'rule' => 'isUnique',
+			// 	'message' => 'This alias has already been taken.',
+			// ),
 			'minLength' => array(
 				'rule' => array('minLength', 1),
 				'message' => 'Alias cannot be empty.',
+			),
+			'alphaNumeric' => array(
+				'rule' => 'alphaNumeric',
+				'message' => 'Please enter alphanumeric values.',
 			),
 		),
 	);
