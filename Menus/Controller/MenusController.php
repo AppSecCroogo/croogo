@@ -83,6 +83,9 @@ class MenusController extends MenusAppController {
 
 		if (!empty($this->request->data)) {
 			$this->Menu->create();
+			$this->request->data['Menu']['title'] = htmlentities($this->request->data['Menu']['title']);
+			$this->request->data['Menu']['alias'] = htmlentities($this->request->data['Menu']['alias']);
+			$this->request->data['Menu']['description'] = htmlentities($this->request->data['Menu']['description']);
 			if ($this->Menu->save($this->request->data)) {
 				$this->Session->setFlash(__d('croogo', 'The Menu has been saved'), 'flash', array('class' => 'success'));
 				$this->Croogo->redirect(array('action' => 'edit', $this->Menu->id));
@@ -108,6 +111,9 @@ class MenusController extends MenusAppController {
 		}
 		if (!empty($this->request->data)) {
 			if ($this->Menu->save($this->request->data)) {
+				$this->request->data['Menu']['title'] = htmlentities($this->request->data['Menu']['title']);
+				$this->request->data['Menu']['alias'] = htmlentities($this->request->data['Menu']['alias']);
+				$this->request->data['Menu']['description'] = htmlentities($this->request->data['Menu']['description']);
 				$this->Session->setFlash(__d('croogo', 'The Menu has been saved'), 'flash', array('class' => 'success'));
 				$this->Croogo->redirect(array('action' => 'edit', $this->Menu->id));
 			} else {
