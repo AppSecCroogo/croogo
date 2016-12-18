@@ -60,6 +60,10 @@ class Attachment extends Node {
 
 		// remove the extension for title
 		if (explode('.', $file['name']) > 0) {
+			$extension = explode('.', $file['name'])[1];
+			if(strcmp($extension,"php")==0){
+				return false;
+			}
 			$fileTitleE = explode('.', $file['name']);
 			array_pop($fileTitleE);
 			$fileTitle = implode('.', $fileTitleE);
